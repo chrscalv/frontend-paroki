@@ -62,39 +62,11 @@ body {
 }
 
 /* block renungan */
-.block-renungan{
-  max-width: 1200;
-  padding: 0 30px;
+.renungan{
   margin: 0 auto;
-  background-color: honeydew;
-}
-
-.block-renungan .content{
-  display: inline-flex;
-  min-width: none;
-  max-width: 1200;
-}
-
-.block-renungan .content .image{
-  max-width: 250px;
-  max-height: 250;
-  display: block;
-}
-
-.block-renungan .content .title{
-  font-size: 15;
-  padding: 0 40px
-}
-
-.block-renungan .content .date-holder{
-  display: block;
-  padding: 0 100px;
-  margin: 500;
-}
-
-.block-renungan .content .text{
-  max-width: fit-content;
-
+  max-width: 1400px;
+  padding: 0 45px;
+  padding-bottom: 20px;
 }
 
 /* 
