@@ -18,47 +18,58 @@ body {
 .container-fluid {
   margin: 0 auto;
   max-width: 1200px;
-  padding: 0 15px;
-  padding-bottom: 20px;
+  padding: 0 auto;
+}
+
+.mainLayout .ant-layout-header {
+  background: #ffff;
+  height: auto;
+  line-height: 1.6;
 }
 
 /* Navrbar */
 
 .navbar{
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1400px;
   padding: 0 15px;
 }
 
-.navbar .logo{
-  max-height: 10;
-}
-
-/* News Block */
-.news-card{
-  max-width: 1200px;
+.navbar .content{
   display: flex;
-  flex-direction: column;
-  margin: 0 50px 0;
-  align-content: center;
-  padding: 50 50 10 20;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
 }
 
-.news-card .image{
-  max-width: 250px;
-  max-height: 250px;
+.ant-layout-header {
+  /* position:fixed; */
+    width:100%;
+    left:0;
+    top:0;
+    right: 0;
+    z-index: 999;
 }
 
-.news-card .title{
-  font-size: 20;
+.navbar .logo {
+  font-size: 20px;
+  text-transform: uppercase;
   font-weight: bold;
-  padding: 0 50px;
 }
 
-.news-card .date-Holder{
-  font-size: 15;
-  font-weight: 100;
-  padding: 0 1200px;
+.navbar .logo .fas {
+  color: #1890ff;
+  margin: 0 5px 0 0;
+  font-size: 28px;
+}
+
+.navbar .logo .title {
+  color: #333;
+}
+/* News Block */
+.news{
+  background: #ffff;
+  padding:0 0 0 0
 }
 
 /* block renungan */
@@ -67,6 +78,26 @@ body {
   max-width: 1400px;
   padding: 0 45px;
   padding-bottom: 20px;
+}
+
+/* homepage */
+.homepage{
+  padding: 30px 0;
+  background: none;
+}
+
+/* content */
+.content{
+  background: #ffff;
+}
+
+.title-holder{
+  padding: 0 0 10px;
+  color: #1890ff;
+}
+
+.historyBlock{
+  background:#d9d9d9;
 }
 
 /* 

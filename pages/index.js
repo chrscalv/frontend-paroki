@@ -5,9 +5,11 @@ import 'antd/dist/antd.css'
 export default function Home() {
   return (
     <div>
-      <Carousel />      
-      <NewsBlock />
-      {/* <BlockRenungan /> */}
+      <Carousel />
+      <div>
+        <NewsBlock />
+        <BlockRenungan />
+      </div>
     </div>
   )
 }

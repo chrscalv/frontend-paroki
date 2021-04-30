@@ -1,44 +1,57 @@
-import { Card, Button, Typography, Row, Col, Divider, Image } from "antd";
+import { Card, Button, Typography, List, Divider, Avatar } from "antd";
 const { Title, Paragraph, Text } = Typography
-import style from '../styles/home.module.css'
+const {Meta} = Card
 
-const item = [
-  {
-    key : 1,
-    title : "Judul artikel satu",
-    body : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  },
-  {
-    key : 1,
-    title : "Judul artikel satu",
-    body : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  },
-  {
-    key : 1,
-    title : "Judul artikel satu",
-    body : "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-  }
-]
+const listData = [];
+for (let i = 0; i < 3; i++) {
+  listData.push({
+    href: 'https://ant.design',
+    title: `ant design part ${i}`,
+    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    description:
+      'Ant Design, a design language for background applications, is refined by Ant UED Team.',
+    content:
+      'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
+  });
+}
 
 const NewsBlock = () => {
   return (
-    <div>
-      <div className="container-fluid">
+    <div className="news">
         <Divider orientation="center">
           <Title>
             Berita Paroki
           </Title>
         </Divider>
-        <div className="news-card">
-          <Image src="https://placeimg.com/500/500/any" className="image"></Image>
-          <div className="title">
-          <Title >Judul</Title>
-          </div>
-          <div className="date-holder">
-            <p>20 April 2021</p>
-          </div>
-        </div>
-      </div>
+        <div className="container-fluid">
+        <List
+          itemLayout="vertical"
+          size="large"
+          dataSource={listData}
+          renderItem={item => (
+            <List.Item
+              key={item.title}
+              actions={[
+                <Button type="link">Lihat Selengkapnya</Button>
+              ]}
+              extra={
+                <img
+                  width={272}
+                  alt="logo"
+                  src="/altar.jpeg"
+                />
+              }
+            >
+              <List.Item.Meta
+                avatar={<Avatar src={item.avatar} />}
+                title={<a href={item.href}>{item.title}</a>}
+                description={item.description}
+              />
+              {item.content}
+            </List.Item>
+          )}
+        />,
+        </div>   
     </div>
   );
 }
