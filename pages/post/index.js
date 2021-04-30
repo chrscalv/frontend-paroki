@@ -5,10 +5,10 @@ import Carousel from '../../component/Carousel'
 import 'antd/dist/antd.css'
 
 export const getStaticProps = async () => {
-  const res = await axios.get('http://localhost:8000/post/all')
-  const post = res.data
+  const res = await axios.get('http://localhost:8000/post/1/all')
+  const data = await res.data
   return {
-    props: post
+    props: {post:data}
   }
 }
 
@@ -32,7 +32,7 @@ const IconText = ({ icon, text }) => (
   </Space>
 );
 
-const Post = () => {
+const Post = ({post}) => {
   return (
     <div className="content">
       <div className="container-fluid">
@@ -43,9 +43,9 @@ const Post = () => {
           itemLayout="vertical"
           size="large"
           pagination={{
-            onChange: page => {
-              console.log(page);
-            },
+            // onChange: page => {
+            //   console.log(page);
+            // },
             pageSize: 5,
           }}
           dataSource={post}
@@ -59,17 +59,15 @@ const Post = () => {
                 <img
                   width={272}
                   alt="logo"
-                  src="/altar.jpeg 
-                  "
+                  src={item.thumbnail}
                 />
               }
             >
               <List.Item.Meta
-                avatar={<Avatar src={item.avatar} />}
                 title={<a href={item.href}>{item.title}</a>}
-                description={item.description}
+                description={item.published_at}
               />
-              {item.content}
+              {item.body}
             </List.Item>
           )}
         />,
