@@ -1,33 +1,22 @@
 import { Card, Button, Typography, List, Divider, Avatar } from "antd";
+import Link from 'next/link'
 const { Title, Paragraph, Text } = Typography
 const {Meta} = Card
 
-const listData = [];
-for (let i = 0; i < 3; i++) {
-  listData.push({
-    href: 'https://ant.design',
-    title: `ant design part ${i}`,
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
-    description:
-      'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-    content:
-      'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-  });
-}
-
-const NewsBlock = () => {
+const NewsBlock = ({posts}) => {
   return (
     <div className="news">
         <Divider orientation="center">
-          <Title>
-            Berita Paroki
-          </Title>
+          <Link href="/post">
+            <Title type="success">Berita Paroki</Title>
+          </Link>
         </Divider>
         <div className="container-fluid">
         <List
           itemLayout="vertical"
           size="large"
-          dataSource={listData}
+          dataSource={posts}
+          // loadMore={}
           renderItem={item => (
             <List.Item
               key={item.title}
@@ -38,16 +27,15 @@ const NewsBlock = () => {
                 <img
                   width={272}
                   alt="logo"
-                  src="/altar.jpeg"
+                  src={item.thumbnail}
                 />
               }
             >
               <List.Item.Meta
-                avatar={<Avatar src={item.avatar} />}
                 title={<a href={item.href}>{item.title}</a>}
-                description={item.description}
+                description={item.published_at}
               />
-              {item.content}
+              {item.body}
             </List.Item>
           )}
         />,
