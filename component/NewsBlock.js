@@ -7,8 +7,8 @@ const NewsBlock = ({posts}) => {
   return (
     <div className="news">
         <Divider orientation="center">
-          <Link href="/post">
-            <Title type="success">Berita Paroki</Title>
+          <Link href="/post">Berita Paroki
+            {/* <Title underline type="success">Berita Paroki</Title> */}
           </Link>
         </Divider>
         <div className="container-fluid">
@@ -16,7 +16,6 @@ const NewsBlock = ({posts}) => {
           itemLayout="vertical"
           size="large"
           dataSource={posts}
-          // loadMore={}
           renderItem={item => (
             <List.Item
               key={item.title}

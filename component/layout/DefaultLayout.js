@@ -1,21 +1,32 @@
-import { Card, Layout, } from "antd";
-import { InstagramOutlined } from '@ant-design/icons';
+import { BackTop, Card, Layout, } from "antd";
 import Navbar from '../Navbar'
-import Post from '../../pages/post/index'
+import Head from 'next/head'
+import AppFooter from '../Footer'
 const { Header, Content, Footer } = Layout
 
-const Default = ({ children }) => {
+const Default = (props) => {
   return (
-    <div>
+    <>
+      <Head>
+        <title>{props.pageTitle} - Paroki Pringwulung</title>
+        <meta name="keyword" content={props.pageKeyword} />
+      </Head>
       <Layout className="mainLayout">
         <Header>
           <Navbar />
         </Header>
-        <Content className="content">
-          {children}
+        <Content className="page-content">
+          {props.children}
         </Content>
+        <BackTop />
+        <Footer>
+          <AppFooter />
+          <div style={{paddingTop: '20px'}}>
+            &copy; 2021 Paroki St.Yohanes Rasul Pringwulung | Maintenance By Team IT
+          </div>
+        </Footer>
       </Layout>
-    </div>
+    </>
   );
 }
 

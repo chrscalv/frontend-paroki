@@ -6,8 +6,8 @@ const { Meta } = Card
 const BlockRenungan = ({ renungan }) => {
   return (
     <div className="renungan">
-      <Divider orientation="center">
-        <Title type="success" underline> Renungan Harian</Title>
+      <Divider orientation="center">Renungan Harian
+        {/* <Title type="success" underline> Renungan Harian</Title> */}
       </Divider>
       <div className="container-fluid">
         <List

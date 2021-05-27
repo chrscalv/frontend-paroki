@@ -1,9 +1,11 @@
 import { Typography,List, Divider,Space,Button } from 'antd'
+import Link from "next/link";
+import Layout from '../../component/layout/DefaultLayout'
 const axios = require('axios');
 const { Title } = Typography
 
 export const getStaticProps = async () => {
-  const res = await axios.get('http://localhost:8000/post/2/all')
+  const res = await axios.get('http://localhost:8000/posts/2/all')
   const data = await res.data
   return {
     props: {post:data}
@@ -12,11 +14,12 @@ export const getStaticProps = async () => {
 
 const IndexRenungan = ({post}) => {
   return (
-    <div className="content">
+    <Layout pageTitle="Renungan Harian" pageKeyword="renungan harian katolik">
+      <div className="page-content">
+      <div className="title-holder">
+        <p className="content-title">Renungan</p>
+      </div>
       <div className="container-fluid">
-        <Divider orientation="left">
-          <Title>Renungan</Title>
-        </Divider>
         <List
           itemLayout="vertical"
           size="large"
@@ -42,7 +45,7 @@ const IndexRenungan = ({post}) => {
               }
             >
               <List.Item.Meta
-                title={<a href={item.href}>{item.title}</a>}
+                title={<Link href={`/renungan/${item.slug}`}>{item.title}</Link>}
                 description={item.published_at}
               />
               {item.body}
@@ -51,6 +54,7 @@ const IndexRenungan = ({post}) => {
         />,
       </div>
     </div>
+    </Layout>
   );
 }
 
